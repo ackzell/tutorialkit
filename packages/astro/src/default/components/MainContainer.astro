@@ -1,12 +1,11 @@
 ---
-import { NavWrapper as Nav } from './NavWrapper';
 import { WorkspacePanelWrapper as WorkspacePanel } from './WorkspacePanelWrapper';
+import type { Lesson, NavList } from '@tutorialkit/types';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import TutorialContent from './TutorialContent.astro';
 import ResizablePanel from './ResizablePanel.astro';
 import MobileContentToggle from './MobileContentToggle.astro';
 import { RESIZABLE_PANELS } from '../utils/constants';
-import type { Lesson, NavList } from '@tutorialkit/types';
-import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import { hasWorkspace } from '../utils/workspace';
 
 interface Props {
@@ -31,7 +30,6 @@ const showWorkspacePanel = hasWorkspace(lesson);
     class="h-full flex flex-col transition-theme bg-tk-elements-app-backgroundColor text-tk-elements-app-textColor"
     slot="a"
   >
-    <Nav client:load lesson={lesson} navList={navList} />
     <TutorialContent lesson={lesson} />
   </div>
   <div

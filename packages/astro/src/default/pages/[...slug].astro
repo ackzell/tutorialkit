@@ -32,6 +32,8 @@ meta.description ??= 'A TutorialKit interactive lesson';
       logoLink={logoLink ?? '/'}
       openInStackBlitz={lesson.data.openInStackBlitz}
       downloadAsZip={lesson.data.downloadAsZip}
+      lesson={lesson}
+      navList={navList}
     />
 
     <MainContainer lesson={lesson} navList={navList} />

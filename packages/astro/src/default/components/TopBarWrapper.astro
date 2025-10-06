@@ -1,6 +1,9 @@
 ---
+import { NavWrapper as Nav } from './NavWrapper';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+
 import { TopBar } from 'tutorialkit:override-components';
-import type { Lesson } from '@tutorialkit/types';
+import type { Lesson, NavList } from '@tutorialkit/types';
 import { ThemeSwitch } from './ThemeSwitch';
 import { LoginButton } from './LoginButton';
 import { DownloadButton } from './DownloadButton';
@@ -12,13 +15,20 @@ interface Props {
   logoLink: string;
   openInStackBlitz: Lesson['data']['openInStackBlitz'];
   downloadAsZip: Lesson['data']['downloadAsZip'];
+  lesson: Lesson<AstroComponentFactory>;
+  navList: NavList;
 }
 
-const { logoLink, openInStackBlitz, downloadAsZip } = Astro.props;
+const { logoLink, openInStackBlitz, downloadAsZip, lesson, navList } = Astro.props;
+
+console.log('Lesson in TopBarWrapper:', lesson);
+console.log('NavList in TopBarWrapper:', navList);
 ---
 
-<TopBar>
+<TopBar lesson={lesson} navList={navList}>
   <Logo slot="logo" logoLink={logoLink ?? '/'} />
+
+  <Nav client:load lesson={lesson} navList={navList} slot="nav-bar" />
 
   {downloadAsZip && <DownloadButton client:load transition:persist slot="download-button" />}
 

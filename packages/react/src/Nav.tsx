@@ -34,7 +34,7 @@ export function Nav({ lesson: currentLesson, navList }: Props) {
   useOutsideClick(menuRef, () => setShowDropdown(false));
 
   return (
-    <header className="grid grid-cols-1 sm:grid-cols-[auto_minmax(0,1fr)_auto] h-[82px] gap-0.5 py-4 px-1 text-sm">
+    <header className="flex flex-row h-full text-sm">
       <a
         className={classNames(
           'hidden sm:flex cursor-pointer h-full items-center justify-center w-[40px] text-tk-elements-breadcrumbs-navButton-iconColor',
@@ -45,19 +45,20 @@ export function Nav({ lesson: currentLesson, navList }: Props) {
       >
         <span className="i-ph-arrow-left scale-120"></span>
       </a>
-      <div className="relative">
+
+      <div className="relative flex-1 flex">
         <div
           data-state={`${showDropdown ? 'open' : 'closed'}`}
           className={classNames(
             navStyles.NavContainer,
-            'absolute mx-4 sm:mx-0 z-1 left-0 right-0 rounded-[8px] border overflow-hidden z-50',
+            'absolute mx-4 sm:mx-0 z-1 w-full rounded-[8px] border overflow-hidden z-50',
           )}
           ref={menuRef}
         >
           <button
             className={classNames(
               navStyles.ToggleButton,
-              'flex-1 flex items-center text-left py-3 px-3 w-full overflow-hidden',
+              'flex-1 flex items-center text-left p-3 w-full overflow-hidden',
             )}
             onClick={() => setShowDropdown(!showDropdown)}
           >
@@ -104,6 +105,7 @@ export function Nav({ lesson: currentLesson, navList }: Props) {
           </AnimatePresence>
         </div>
       </div>
+
       <a
         className={classNames(
           'hidden sm:flex cursor-pointer h-full items-center justify-center w-[40px] text-tk-elements-breadcrumbs-navButton-iconColor',
