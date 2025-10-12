@@ -5,5 +5,9 @@
     "**/node_modules/**": true,
     "**/*.code-search": true,
     "cli/_template": true
-  }
+  },
+  "cSpell.words": [
+    "tutorialkit",
+    "webcontainer"
+  ]
 }

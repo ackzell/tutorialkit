@@ -1,10 +1,11 @@
-import { defaultHighlightStyle, syntaxHighlighting } from '@codemirror/language';
+import { syntaxHighlighting } from '@codemirror/language';
 import { Compartment, type Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { transitionTheme } from '@tutorialkit/theme/transition-theme';
 import '../../styles/cm.css';
 import type { Theme } from '../types.js';
-import { vscodeDarkTheme } from './themes/vscode-dark.js';
+import { snazzyLightTheme } from './themes/snazzy-light.js';
+import { vesperTheme } from './themes/vesper.js';
 import type { EditorSettings } from './index.js';
 
 export const darkTheme = EditorView.theme({}, { dark: true });
@@ -35,6 +36,7 @@ function getEditorTheme(settings: EditorSettings) {
       ...transitionTheme,
     },
     '.cm-cursor': {
+      height: '30px',
       borderLeft: 'var(--cm-cursor-width) solid var(--cm-cursor-backgroundColor)',
     },
     '.cm-scroller': {
@@ -58,7 +60,9 @@ function getEditorTheme(settings: EditorSettings) {
     },
     '.cm-activeLine': {
       background: 'var(--cm-activeLineBackgroundColor)',
+      border: 'var(--cm-activeLineBorder)',
       ...transitionTheme,
+      transitionProperty: 'background-color',
     },
     '.cm-gutters': {
       background: 'var(--cm-gutter-backgroundColor)',
@@ -167,9 +171,9 @@ function getEditorTheme(settings: EditorSettings) {
 }
 
 function getLightTheme() {
-  return syntaxHighlighting(defaultHighlightStyle);
+  return syntaxHighlighting(snazzyLightTheme);
 }
 
 function getDarkTheme() {
-  return syntaxHighlighting(vscodeDarkTheme);
+  return syntaxHighlighting(vesperTheme);
 }

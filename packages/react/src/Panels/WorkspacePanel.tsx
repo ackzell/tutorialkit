@@ -151,7 +151,7 @@ function EditorSection({ theme, tutorialStore, hasEditor }: PanelProps) {
       minSize={10}
       maxSize={hasEditor ? 100 : 0}
       collapsible={!hasEditor}
-      className="transition-theme bg-tk-elements-panel-backgroundColor text-tk-elements-panel-textColor"
+      className="transition-theme bg-[var(--tk-elements-panel-backgroundColor)] text-[var(--tk-elements-panel-textColor)]"
     >
       <EditorPanel
         id={storeRef}
@@ -266,7 +266,7 @@ function PreviewsSection({
       maxSize={hasPreviews ? 100 : 0}
       collapsible={!hasPreviews}
       className={classNames({
-        'transition-theme border-t border-tk-elements-app-borderColor': hasEditor,
+        'transition-theme border-t border-[var(--tk-elements-app-borderColor)]': hasEditor,
       })}
     >
       <PreviewPanel
@@ -319,9 +319,12 @@ function TerminalSection({
       onExpand={() => {
         terminalExpanded.current = true;
       }}
-      className={classNames('transition-theme bg-tk-elements-panel-backgroundColor text-tk-elements-panel-textColor', {
-        'border-t border-tk-elements-app-borderColor': hasPreviews,
-      })}
+      className={classNames(
+        'transition-theme bg-[var(--tk-elements-panel-backgroundColor)] text-[var(--tk-elements-panel-textColor)]',
+        {
+          'border-t border-[var(--tk-elements-app-borderColor)]': hasPreviews,
+        },
+      )}
     >
       <TerminalPanel tutorialStore={tutorialStore} theme={theme} />
     </Panel>

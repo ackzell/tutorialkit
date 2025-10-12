@@ -13,6 +13,7 @@
 
   /* Active Line */
   --cm-activeLineBackgroundColor: var(--tk-elements-editor-activeLineBackgroundColor, rgb(224 231 235 / 30%));
+  --cm-activeLineBorder: var(--tk-elements-editor-activeLineBorder, none);
 
   /* Cursor */
   --cm-cursor-width: 2px;

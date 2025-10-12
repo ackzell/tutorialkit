@@ -44,11 +44,11 @@ export function TerminalPanel({ theme, tutorialStore }: TerminalPanelProps) {
   }, []);
 
   return (
-    <div className="panel-container transition-theme bg-tk-elements-panel-backgroundColor text-tk-elements-panel-textColor">
+    <div className="panel-container transition-theme bg-[var(--tk-elements-panel-backgroundColor)] text-[var(--tk-elements-panel-textColor)]">
       <div className="panel-tabs-header overflow-x-hidden">
         <div className="panel-title w-full">
           <ul
-            className="flex h-full transition-theme border-b border-tk-elements-app-borderColor w-full"
+            className="flex h-full transition-theme border-b border-[var(--tk-elements-app-borderColor)] w-full"
             role="tablist"
             aria-orientation="horizontal"
           >
@@ -59,13 +59,14 @@ export function TerminalPanel({ theme, tutorialStore }: TerminalPanelProps) {
                 <li key={index}>
                   <button
                     className={classNames(
-                      'group h-full px-4 flex items-center gap-1.5 whitespace-nowrap text-sm position-relative transition-theme border-r border-tk-elements-panel-headerTab-borderColor',
+                      'group h-full px-4 flex items-center gap-1.5 whitespace-nowrap text-sm position-relative transition-theme border-r border-[var(--tk-elements-panel-headerTab-borderColor)]',
                       {
-                        'bg-tk-elements-panel-headerTab-backgroundColor text-tk-elements-panel-headerTab-textColor hover:bg-tk-elements-panel-headerTab-backgroundColorHover hover:text-tk-elements-panel-headerTab-textColorHover hover:border-tk-elements-panel-headerTab-borderColorHover':
+                        'bg-[var(--tk-elements-panel-headerTab-backgroundColor)] text-[var(--tk-elements-panel-headerTab-textColor)] hover:bg-[var(--tk-elements-panel-headerTab-backgroundColorHover)] hover:text-[var(--tk-elements-panel-headerTab-textColorHover)] hover:border-[var(--tk-elements-panel-headerTab-borderColorHover)]':
                           !selected,
-                        'bg-tk-elements-panel-headerTab-backgroundColorActive text-tk-elements-panel-headerTab-textColorActive border-tk-elements-panel-headerTab-borderColorActive':
+                        'bg-[var(--tk-elements-panel-headerTab-backgroundColorActive)] text-[var(--tk-elements-panel-headerTab-textColorActive)] border-[var(--tk-elements-panel-headerTab-borderColorActive)]':
                           selected,
-                        'shadow-[0px_1px_0px_0px] shadow-tk-elements-panel-headerTab-backgroundColorActive': selected,
+                        'shadow-[0px_1px_0px_0px] shadow-[var(--tk-elements-panel-headerTab-backgroundColorActive)]':
+                          selected,
                         'border-l': index > 0,
                       },
                     )}
@@ -77,10 +78,13 @@ export function TerminalPanel({ theme, tutorialStore }: TerminalPanelProps) {
                     onClick={() => setTabIndex(index)}
                   >
                     <span
-                      className={classNames(`text-tk-elements-panel-headerTab-iconColor ${ICON_MAP.get(type) ?? ''}`, {
-                        'group-hover:text-tk-elements-panel-headerTab-iconColorHover': !selected,
-                        'text-tk-elements-panel-headerTab-iconColorActive': selected,
-                      })}
+                      className={classNames(
+                        `text-[var(--tk-elements-panel-headerTab-iconColor)] ${ICON_MAP.get(type) ?? ''}`,
+                        {
+                          'group-hover:text-[var(--tk-elements-panel-headerTab-iconColorHover)]': !selected,
+                          'text-[var(--tk-elements-panel-headerTab-iconColorActive)]': selected,
+                        },
+                      )}
                     ></span>
                     {title}
                   </button>

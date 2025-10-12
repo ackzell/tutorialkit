@@ -70,16 +70,16 @@ export function EditorPanel({
   }, [id]);
 
   return (
-    <PanelGroup className="bg-tk-elements-panel-backgroundColor" direction="horizontal">
+    <PanelGroup className="bg-[var(--tk-elements-panel-backgroundColor)]" direction="horizontal">
       <Panel className="flex flex-col" collapsible defaultSize={0} minSize={10} ref={fileTreePanelRef}>
-        <div className="panel-header border-r border-b border-tk-elements-app-borderColor">
+        <div className="panel-header border-r border-b border-[var(--tk-elements-app-borderColor)]">
           <div className="panel-title">
             <div className="panel-icon i-ph-tree-structure-duotone shrink-0"></div>
             <span className="text-sm">{i18n.filesTitleText}</span>
           </div>
         </div>
         <FileTree
-          className="flex flex-col flex-grow py-2 border-r border-tk-elements-app-borderColor text-sm overflow-y-auto overflow-x-hidden"
+          className="flex flex-col flex-grow py-2 border-r border-[var(--tk-elements-app-borderColor)] text-sm overflow-y-auto overflow-x-hidden"
           i18n={i18n}
           selectedFile={selectedFile}
           hideRoot={hideRoot ?? true}
@@ -126,7 +126,7 @@ function FileTab({ i18n, editorDocument, helpAction, onHelpClick }: FileTabProps
   const icon = fileName ? getFileIcon(fileName) : '';
 
   return (
-    <div className="panel-header border-b border-tk-elements-app-borderColor flex justify-between">
+    <div className="panel-header border-b border-[var(--tk-elements-app-borderColor)] flex justify-between">
       <div className="panel-title">
         <div className={`panel-icon scale-125 ${icon}`}></div>
         <span className="text-sm">{fileName}</span>

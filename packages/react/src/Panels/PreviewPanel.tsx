@@ -87,8 +87,8 @@ export const PreviewPanel = memo(
 
     if (!hasPreviews) {
       return (
-        <div className="panel-container transition-theme bg-tk-elements-panel-backgroundColor text-tk-elements-panel-textColor">
-          <div className="panel-header border-b border-tk-elements-app-borderColor justify-between">
+        <div className="panel-container transition-theme bg-[var(--tk-elements-panel-backgroundColor)] text-[var(--tk-elements-panel-textColor)]">
+          <div className="panel-header border-b border-[var(--tk-elements-app-borderColor)] justify-between">
             <div className="panel-title">
               <div className="panel-icon i-ph-lightning-duotone"></div>
               <span className="text-sm">{i18n.prepareEnvironmentTitleText}</span>
@@ -178,8 +178,8 @@ function Preview({ preview, iframe, previewCount, first, last, toggleTerminal, i
   return (
     <div className="panel-container">
       <div
-        className={classNames('panel-header border-b border-tk-elements-app-borderColor justify-between', {
-          'border-l border-tk-elements-app-borderColor': !first,
+        className={classNames('panel-header border-b border-[var(--tk-elements-app-borderColor)] justify-between', {
+          'border-l border-[var(--tk-elements-app-borderColor)]': !first,
         })}
       >
         <div className="panel-title">

@@ -20,9 +20,6 @@ interface Props {
 }
 
 const { logoLink, openInStackBlitz, downloadAsZip, lesson, navList } = Astro.props;
-
-console.log('Lesson in TopBarWrapper:', lesson);
-console.log('NavList in TopBarWrapper:', navList);
 ---
 
 <TopBar lesson={lesson} navList={navList}>

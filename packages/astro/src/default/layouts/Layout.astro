@@ -34,6 +34,31 @@ const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toStri
 
       <MetaTags slot="meta" meta={meta} />
     </HeadTags>
+
+    <script>
+      const root = document.documentElement;
+
+      const theme = root.dataset.theme;
+
+      if (theme) {
+        root.classList.add('theme-ready');
+      }
+
+      const observer = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          if (m.type === 'attributes' && m.attributeName === 'data-theme') {
+            // trigger the transition by removing and re-adding `.theme-ready`
+            root.classList.remove('theme-ready');
+            requestAnimationFrame(() => {
+              setTimeout(() => root.classList.add('theme-ready'), 900);
+            });
+          }
+        }
+      });
+
+      observer.observe(root, { attributes: true });
+    </script>
+
     <ViewTransitions />
     <script is:inline>
       setTutorialKitTheme();
@@ -92,7 +117,7 @@ const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toStri
       });
     </script>
   </head>
-  <body class="h-full text-black relative overflow-hidden">
+  <body class="h-full text-black relative overflow-hidden theme-ready">
     <slot />
   </body>
 </html>
