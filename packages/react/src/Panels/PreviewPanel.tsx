@@ -176,7 +176,7 @@ function Preview({ preview, iframe, previewCount, first, last, toggleTerminal, i
   }
 
   return (
-    <div className="panel-container">
+    <div className="panel-container bg-[var(--tk-elements-panel-backgroundColor)] text-[var(--tk-elements-panel-textColor)]">
       <div
         className={classNames('panel-header border-b border-[var(--tk-elements-app-borderColor)] justify-between', {
           'border-l border-[var(--tk-elements-app-borderColor)]': !first,
@@ -188,7 +188,7 @@ function Preview({ preview, iframe, previewCount, first, last, toggleTerminal, i
             title={i18n.reloadPreviewTitle}
             className="panel-button rounded-full p-1.5 -my-1.5 -ml-2"
           >
-            <div className="panel-icon i-ph-arrow-clockwise"></div>
+            <div className="panel-icon text-[var(--tk-elements-panel-headerTab-iconColor)]  i-ph-arrow-clockwise"></div>
           </button>
           <span className="text-sm truncate">{previewTitle(preview, previewCount, i18n)}</span>
         </div>
