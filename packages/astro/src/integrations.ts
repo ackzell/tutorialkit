@@ -45,7 +45,7 @@ export function extraIntegrations({
         return `[data-theme='${theme.type}']`;
       },
       defaultProps: {
-        showLineNumbers: false,
+        showLineNumbers: true,
       },
       styleOverrides: {
         frames: {

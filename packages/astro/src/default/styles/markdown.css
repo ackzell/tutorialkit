@@ -186,6 +186,16 @@
   --code-color: var(--tk-elements-callouts-success-codeColor);
 }
 
+.markdown-content .callout-challenge {
+  --tk-elements-markdown-callouts-backgroundColor: var(--tk-elements-callouts-challenge-backgroundColor);
+  --tk-elements-markdown-callouts-textColor: var(--tk-elements-callouts-challenge-textColor);
+  --tk-elements-markdown-callouts-borderColor: var(--tk-elements-callouts-challenge-borderColor);
+  --tk-elements-markdown-callouts-titleTextColor: var(--tk-elements-callouts-challenge-titleTextColor);
+  --tk-elements-markdown-callouts-iconColor: var(--tk-elements-callouts-challenge-iconColor);
+  --code-background-color: var(--tk-elements-callouts-challenge-codeBackgroundColor);
+  --code-color: var(--tk-elements-callouts-challenge-codeColor);
+}
+
 .markdown-content .callout a:has(> code):not(:hover) {
   color: var(--code-color);
 }

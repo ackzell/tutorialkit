@@ -14,6 +14,7 @@
   --tk-background-negative: theme('colors.negative.100');
   --tk-background-info: theme('colors.info.100');
   --tk-background-tip: theme('colors.tip.100');
+  --tk-background-challenge: theme('colors.challenge.100');
 
   --tk-text-primary: theme('colors.gray.800');
   --tk-text-primary-inverted: theme('colors.gray.0');
@@ -29,6 +30,7 @@
   --tk-text-negative: theme('colors.negative.600');
   --tk-text-info: theme('colors.info.800');
   --tk-text-tip: theme('colors.tip.900');
+  --tk-text-challenge: theme('colors.challenge.900');
 
   --tk-border-primary: theme('colors.gray.200');
   --tk-border-secondary: theme('colors.gray.200');
@@ -39,6 +41,7 @@
   --tk-border-negative: theme('colors.negative.500');
   --tk-border-info: theme('colors.info.600');
   --tk-border-tip: theme('colors.tip.600');
+  --tk-border-challenge: theme('colors.challenge.600');
 
   /* Terminal Colors */
   --tk-terminal-foreground: #333333;
@@ -77,6 +80,7 @@
   --tk-background-negative: theme('colors.negative.950');
   --tk-background-info: theme('colors.info.950');
   --tk-background-tip: theme('colors.tip.950');
+  --tk-background-challenge: theme('colors.challenge.950');
 
   --tk-text-primary: theme('colors.gray.200');
   --tk-text-primary-inverted: theme('colors.gray.950');
@@ -92,6 +96,7 @@
   --tk-text-negative: theme('colors.negative.400');
   --tk-text-info: theme('colors.info.300');
   --tk-text-tip: theme('colors.tip.400');
+  --tk-text-challenge: theme('colors.challenge.400');
 
   --tk-border-primary: theme('colors.gray.800');
   --tk-border-secondary: theme('colors.gray.800');
@@ -102,6 +107,7 @@
   --tk-border-negative: theme('colors.negative.500');
   --tk-border-info: theme('colors.info.400');
   --tk-border-tip: theme('colors.tip.500');
+  --tk-border-challenge: theme('colors.challenge.600');
 
   /* Terminal Colors */
   --tk-terminal-foreground: #eff0eb;
@@ -393,4 +399,13 @@
   --tk-elements-callouts-success-iconColor: var(--tk-elements-callouts-success-titleTextColor);
   --tk-elements-callouts-success-codeColor: var(--tk-text-primary);
   --tk-elements-callouts-success-codeBackgroundColor: var(--tk-background-secondary);
+
+  /* Callouts > Challenge */
+  --tk-elements-callouts-challenge-backgroundColor: var(--tk-background-challenge);
+  --tk-elements-callouts-challenge-textColor: var(--tk-elements-content-textColor);
+  --tk-elements-callouts-challenge-borderColor: var(--tk-border-challenge);
+  --tk-elements-callouts-challenge-titleTextColor: var(--tk-text-challenge);
+  --tk-elements-callouts-challenge-iconColor: var(--tk-elements-callouts-challenge-titleTextColor);
+  --tk-elements-callouts-challenge-codeColor: var(--tk-text-primary);
+  --tk-elements-callouts-challenge-codeBackgroundColor: var(--tk-background-secondary);
 }

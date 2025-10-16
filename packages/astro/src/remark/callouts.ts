@@ -21,6 +21,10 @@ interface Callout {
 }
 
 const callouts: Record<string, Callout> = {
+  challenge: {
+    title: 'Challenge',
+    icon: 'i-ph-lightning',
+  },
   tip: {
     title: 'Tip',
     icon: 'i-ph-rocket-launch',
@@ -45,7 +49,7 @@ const callouts: Record<string, Callout> = {
 
 type CalloutVariant = keyof typeof callouts;
 
-const variants = new Set<CalloutVariant>(['tip', 'info', 'warn', 'danger', 'success']);
+const variants = new Set<CalloutVariant>(['tip', 'info', 'warn', 'danger', 'success', 'challenge']);
 
 function isNodeDirective(node: Node): node is Directives {
   return node.type === 'textDirective' || node.type === 'leafDirective' || node.type === 'containerDirective';

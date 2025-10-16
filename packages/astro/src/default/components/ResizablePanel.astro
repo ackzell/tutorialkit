@@ -79,7 +79,7 @@ const panelClass = classNames('overflow-hidden', { 'h-full': type === 'horizonta
           </div>
           <div
             data-id="divider"
-            class={classNames('absolute z-90 transition-colors hover:bg-gray-500/13', {
+            class={classNames('absolute transition-colors hover:bg-gray-500/13', {
               'w-0 h-full left-[var(--pos)] cursor-ew-resize p-0 px-1.5 -translate-x-1/2': type === 'horizontal',
               'h-0 w-full top-[var(--pos)] cursor-ns-resize p-0 py-2 -translate-y-1/2': type !== 'horizontal',
             })}
