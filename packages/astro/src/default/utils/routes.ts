@@ -1,11 +1,32 @@
+import { execSync } from 'node:child_process';
 import type { Lesson } from '@tutorialkit/types';
 import type { GetStaticPaths, GetStaticPathsItem } from 'astro';
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
 import { getTutorial } from './content';
 import { generateNavigationList } from './nav';
 
+function getGitLastModified(filePath: string): string | null {
+  try {
+    const timestamp = execSync(`git log -1 --format="%cI" -- "src/content/tutorial/${filePath}"`, {
+      encoding: 'utf8',
+    }).trim();
+    return timestamp || null;
+  } catch {
+    return null;
+  }
+}
+
 export async function generateStaticRoutes() {
   const tutorial = await getTutorial();
+
+  for (const lesson of tutorial.lessons) {
+    const timestamp = getGitLastModified(lesson.filepath);
+
+    if (timestamp) {
+      lesson.data.custom = lesson.data.custom || {};
+      lesson.data.custom.lastModified = timestamp;
+    }
+  }
 
   const routes = [];
   const lessons = Object.values(tutorial.lessons);
