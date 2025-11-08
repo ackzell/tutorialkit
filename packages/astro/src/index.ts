@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url';
 import type { AstroConfig, AstroIntegration } from 'astro';
-import type { ExpressiveCodePlugin, ThemeObjectOrShikiThemeName } from 'astro-expressive-code';
+import type { ExpressiveCodePlugin, StyleOverrides, ThemeObjectOrShikiThemeName } from 'astro-expressive-code';
 import { extraIntegrations } from './integrations.js';
 import { updateMarkdownConfig } from './remark/index.js';
 import { tutorialkitCore } from './vite-plugins/core.js';
@@ -76,6 +76,8 @@ export interface Options {
    * @default ['light-plus', 'dark-plus']
    */
   expressiveCodeThemes?: [ThemeObjectOrShikiThemeName, ThemeObjectOrShikiThemeName];
+
+  expressiveCodeStyleOverrides?: StyleOverrides | undefined;
 }
 
 export default function createPlugin({
@@ -85,6 +87,7 @@ export default function createPlugin({
   enterprise,
   expressiveCodePlugins = [],
   expressiveCodeThemes,
+  expressiveCodeStyleOverrides,
 }: Options = {}): AstroIntegration {
   const webcontainerFiles = new WebContainerFiles();
 
@@ -159,7 +162,12 @@ export default function createPlugin({
         config.integrations.splice(
           selfIndex + 1,
           0,
-          ...extraIntegrations({ root: fileURLToPath(config.root), expressiveCodePlugins, expressiveCodeThemes }),
+          ...extraIntegrations({
+            root: fileURLToPath(config.root),
+            expressiveCodePlugins,
+            expressiveCodeThemes,
+            expressiveCodeStyleOverrides,
+          }),
         );
       },
       'astro:config:done'({ config }) {

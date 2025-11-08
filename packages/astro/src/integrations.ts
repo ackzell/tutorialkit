@@ -4,13 +4,18 @@ import react from '@astrojs/react';
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 import { getInlineContentForPackage } from '@tutorialkit/theme';
-import expressiveCode, { type ExpressiveCodePlugin, type ThemeObjectOrShikiThemeName } from 'astro-expressive-code';
+import expressiveCode, {
+  type ExpressiveCodePlugin,
+  type StyleOverrides,
+  type ThemeObjectOrShikiThemeName,
+} from 'astro-expressive-code';
 import UnoCSS from 'unocss/astro';
 
 export function extraIntegrations({
   root,
   expressiveCodePlugins = [],
   expressiveCodeThemes = ['light-plus', 'dark-plus'],
+  expressiveCodeStyleOverrides,
 }: {
   root: string;
   expressiveCodePlugins?: ExpressiveCodePlugin[];
@@ -20,6 +25,8 @@ export function extraIntegrations({
    * Takes a tuple of themes, e.g. `[lightTheme, darkTheme]`.
    */
   expressiveCodeThemes?: [ThemeObjectOrShikiThemeName, ThemeObjectOrShikiThemeName];
+
+  expressiveCodeStyleOverrides?: StyleOverrides | undefined;
 }) {
   return [
     react(),
@@ -32,7 +39,7 @@ export function extraIntegrations({
         theme.styleOverrides = {
           borderColor: 'var(--tk-border-secondary)',
           borderWidth: '1px',
-          borderRadius: 'var(--code-border-radius, 0px)',
+          borderRadius: 'var(--code-border-radius, 4px)',
           frames: {
             terminalTitlebarBackground: `var(--tk-background-${isDark ? 'primary' : 'secondary'})`,
             terminalTitlebarBorderBottomColor: `var(--tk-background-${isDark ? 'primary' : 'secondary'})`,
@@ -46,11 +53,14 @@ export function extraIntegrations({
       },
       defaultProps: {
         showLineNumbers: true,
+        collapseStyle: 'collapsible-auto',
       },
       styleOverrides: {
         frames: {
           shadowColor: 'none',
         },
+        collapsibleSections: {},
+        ...expressiveCodeStyleOverrides,
       },
     }),
     mdx(),

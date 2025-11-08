@@ -1,3 +1,5 @@
+import '@expressive-code/plugin-collapsible-sections';
+import '@expressive-code/plugin-line-numbers';
 import type { AstroIntegration } from 'astro';
 
 export type AstroConfigSetupOptions = Parameters<NonNullable<AstroIntegration['hooks']['astro:config:setup']>>[0];
